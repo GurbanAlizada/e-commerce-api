@@ -2,6 +2,7 @@ package com.example.service.inter;
 
 import com.example.dtos.CategoryDto;
 import com.example.dtos.request.CategoryRequest;
+import com.example.dtos.request.ProductRequest;
 import com.example.model.Category;
 import com.example.utilities.results.DataResult;
 import com.example.utilities.results.Result;
@@ -17,5 +18,9 @@ public interface CategoryServiceInter {
     DataResult<CategoryDto> getByCategoryName(String categoryName);
 
     Result add(CategoryRequest categoryRequest);
+
+    Result deleteCategory(int id);
+
+    Result updateCategory( int id , CategoryRequest categoryRequest);
 
 }

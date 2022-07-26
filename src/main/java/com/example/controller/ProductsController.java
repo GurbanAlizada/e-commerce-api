@@ -33,12 +33,12 @@ public class ProductsController {
         return productServiceInter.add(productRequest);
     }
 
-    @PostMapping("/deleteProduct/{id}")
+    @DeleteMapping ("/deleteProduct/{id}")
     public Result deleteProduct(@PathVariable("id") int id){
         return productServiceInter.deleteProduct(id);
     }
 
-    @PostMapping("/updateUser/{id}")
+    @PutMapping("/updateUser/{id}")
     public Result updateProduct(@PathVariable("id") int id , @Valid @RequestBody  ProductRequest productRequest){
         return productServiceInter.updateProduct(id, productRequest);
     }

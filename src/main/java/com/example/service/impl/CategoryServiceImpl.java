@@ -72,12 +72,28 @@ public class CategoryServiceImpl implements CategoryServiceInter {
                 categoryRequest.getCategoryName(),
                 null
         );
-        categoryRepository.save(category);
-        return new SuccessResult("Category basarile eklendi");
+        Category addedCategory = categoryRepository.save(category);
+        return new SuccessResult("Kategori eklendi");
     }
 
+    @Override
+    public Result deleteCategory(int id) {
+        Category category = categoryRepository.findById(id)
+                .orElseThrow(()->new CategoryNotFoundException("Kategori Bulunmadi"));
+        categoryRepository.delete(category);
+        return new SuccessResult(
+                "Kategori basari ile silindi"
+        );
+    }
 
-
+    @Override
+    public Result updateCategory(int id, CategoryRequest categoryRequest) {
+        Category category = categoryRepository.findById(id)
+                .orElseThrow(()->new CategoryNotFoundException("Kategory Bulunamadi"));
+        category.setCategoryName(categoryRequest.getCategoryName());
+        categoryRepository.save(category);
+        return new SuccessResult("Kategori basarile guncellendi");
+    }
 
 
 }

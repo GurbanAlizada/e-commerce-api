@@ -26,3 +26,19 @@ public class ECommerceSpringBootApplication {
     }
 
 }
+/*
+
+
+spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
+
+spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce
+
+spring.datasource.username=root
+spring.datasource.password=1234
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.generate-ddl=true
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+ */

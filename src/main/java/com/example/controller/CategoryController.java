@@ -44,12 +44,21 @@ public class CategoryController {
 
 
     @PostMapping("/add")
-    public Result add( @Valid @RequestBody CategoryRequest categoryRequest){
+    public Result add(@Valid @RequestBody CategoryRequest categoryRequest){
         return categoryService.add(categoryRequest);
     }
 
 
 
+    @DeleteMapping("/deleteCategory/{id}")
+    public Result deleteCategory(@PathVariable("id") int id){
+        return categoryService.deleteCategory(id);
+    }
 
+
+    @PutMapping("/updateCategory/{id}")
+    public Result updateCategory(@PathVariable("id") int id,@Valid @RequestBody CategoryRequest categoryRequest){
+        return categoryService.updateCategory(id, categoryRequest);
+    }
 
 }
