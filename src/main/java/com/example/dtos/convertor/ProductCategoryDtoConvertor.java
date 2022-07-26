@@ -17,17 +17,7 @@ public class ProductCategoryDtoConvertor {
 
 
 
-    public Category convertToCategory (ProductCategoryDto productCategoryDto){
-        return new Category(
-                productCategoryDto.getId(),
-                productCategoryDto.getCategoryName(),
-                null
-        );
 
-
-
-
-    }
 
 
 

@@ -20,17 +20,5 @@ public class CategoryProductDtoConvertor {
 
 
 
-    public Product convertToProduct(CategoryProductDto categoryProductDto){
-        return new Product(
-                categoryProductDto.getId(),
-                null,
-                categoryProductDto.getProductName(),
-                categoryProductDto.getUnitPrice(),
-                categoryProductDto.getUnitsInStock(),
-                categoryProductDto.getQuantityPerUnit()
-        );
-    }
-
-
 
 }

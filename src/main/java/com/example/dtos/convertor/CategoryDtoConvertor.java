@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 @Component
 public class CategoryDtoConvertor {
 
-
     private final CategoryProductDtoConvertor categoryProductDtoConvertor;
 
     public CategoryDtoConvertor(CategoryProductDtoConvertor categoryProductDtoConvertor) {
@@ -26,18 +25,6 @@ public class CategoryDtoConvertor {
                         .collect(Collectors.toList())
         );
     }
-
-    /*
-
-    Category convert(CategoryDto categoryDto){
-        return new Category(
-                categoryDto.getId(),
-                categoryDto.getCategoryName(),
-                null
-        );
-    }
-*/
-
 
 
 }

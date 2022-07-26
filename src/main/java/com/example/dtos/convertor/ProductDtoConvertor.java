@@ -7,12 +7,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProductDtoConvertor {
 
-
-    private final CategoryDtoConvertor  categoryDtoConvertor;
     private final ProductCategoryDtoConvertor productCategoryDtoConvertor;
 
-    public ProductDtoConvertor(CategoryDtoConvertor categoryDtoConvertor, ProductCategoryDtoConvertor productCategoryDtoConvertor) {
-        this.categoryDtoConvertor = categoryDtoConvertor;
+    public ProductDtoConvertor( ProductCategoryDtoConvertor productCategoryDtoConvertor) {
         this.productCategoryDtoConvertor = productCategoryDtoConvertor;
     }
 
@@ -33,24 +30,6 @@ public class ProductDtoConvertor {
     }
 
 
-
-
-/*
-    public Product convertToProduct(ProductDto productDto){
-        return new Product(
-                productDto.getId(),
-                null,               // Category category
-                productDto.getProductName(),
-                productDto.getUnitPrice(),
-                productDto.getUnitsInStock(),
-                productDto.getQuantityPerUnit()
-        );
-        productCategoryDtoConvertor.convertToCategory();
-
-    }
-
-
-    */
 
 
 
