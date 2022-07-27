@@ -7,6 +7,7 @@ import com.example.utilities.results.DataResult;
 import com.example.utilities.results.Result;
 import com.example.dtos.ProductWithCategoryDto;
 import com.example.service.inter.ProductServiceInter;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -23,91 +24,91 @@ public class ProductsController {
     }
 
     @GetMapping("/getall")
-    public DataResult<List<ProductDto>> getAll() {
-        return productServiceInter.getAll();
+    public ResponseEntity<DataResult<List<ProductDto>>> getAll() {
+        return ResponseEntity.ok(productServiceInter.getAll());
     }
 
 
     @PostMapping("/addProduct")
-    Result add(@Valid @RequestBody ProductRequest productRequest){
-        return productServiceInter.add(productRequest);
+    ResponseEntity<Result> add(@Valid @RequestBody ProductRequest productRequest){
+        return ResponseEntity.ok(productServiceInter.add(productRequest));
     }
 
     @DeleteMapping ("/deleteProduct/{id}")
-    public Result deleteProduct(@PathVariable("id") int id){
-        return productServiceInter.deleteProduct(id);
+    public ResponseEntity<Result> deleteProduct(@PathVariable("id") int id){
+        return ResponseEntity.ok(productServiceInter.deleteProduct(id));
     }
 
     @PutMapping("/updateUser/{id}")
-    public Result updateProduct(@PathVariable("id") int id , @Valid @RequestBody  ProductRequest productRequest){
-        return productServiceInter.updateProduct(id, productRequest);
+    public ResponseEntity<Result> updateProduct(@PathVariable("id") int id , @Valid @RequestBody  ProductRequest productRequest){
+        return ResponseEntity.ok(productServiceInter.updateProduct(id, productRequest));
     }
 
 
     @GetMapping("/{id}")
-    public DataResult<ProductDto> getById(@PathVariable("id") int id){
-        return productServiceInter.getById(id);
+    public ResponseEntity<DataResult<ProductDto>> getById(@PathVariable("id") int id){
+        return ResponseEntity.ok(productServiceInter.getById(id));
     }
 
 
     @GetMapping("/getAllByPage")
-    public DataResult<List<ProductDto>> getAllByPage(@RequestParam("pageNo") int pageNo ,@RequestParam("pageSize") int pageSize){
-        return productServiceInter.getAllByPage(pageNo,pageSize);
+    public ResponseEntity<DataResult<List<ProductDto>>> getAllByPage(@RequestParam("pageNo") int pageNo ,@RequestParam("pageSize") int pageSize){
+        return ResponseEntity.ok(productServiceInter.getAllByPage(pageNo,pageSize));
     }
 
 
     @GetMapping("/getAllBySorted")
-    public DataResult<List<ProductDto>> getAllBySorted(){
-        return productServiceInter.getAllBySorted();
+    public ResponseEntity<DataResult<List<ProductDto>>> getAllBySorted(){
+        return ResponseEntity.ok(productServiceInter.getAllBySorted());
     }
 
     @GetMapping("/getByProductName")
-    public DataResult<ProductDto> getByProductName(@RequestParam("productName") String productName) {
-        return productServiceInter.getByProductName(productName);
+    public ResponseEntity<DataResult<ProductDto>> getByProductName(@RequestParam("productName") String productName) {
+        return ResponseEntity.ok(productServiceInter.getByProductName(productName));
     }
 
 
     @GetMapping("getByProductNameAndCategory")
-    public DataResult<ProductDto> getByProductNameAndCategory_CategoryId(@RequestParam("productName") String productName,@RequestParam("categoryId") int categoryId) {
-        return productServiceInter.getByProductNameAndCategory_CategoryId(productName , categoryId);
+    public ResponseEntity<DataResult<ProductDto>> getByProductNameAndCategory_CategoryId(@RequestParam("productName") String productName,@RequestParam("categoryId") int categoryId) {
+        return ResponseEntity.ok(productServiceInter.getByProductNameAndCategory_CategoryId(productName , categoryId));
     }
 
 
     @GetMapping("/getByProductNameOrCategory")
-    public DataResult<List<ProductDto>> getByProductNameOrCategory_CategoryId(@RequestParam("productName")String productName,@RequestParam("categoryId") int categoryId) {
-       return productServiceInter.getByProductNameOrCategory_CategoryId(productName , categoryId);
+    public ResponseEntity<DataResult<List<ProductDto>>> getByProductNameOrCategory_CategoryId(@RequestParam("productName")String productName,@RequestParam("categoryId") int categoryId) {
+       return ResponseEntity.ok(productServiceInter.getByProductNameOrCategory_CategoryId(productName , categoryId));
     }
 
 
 
 
     @GetMapping("/getByCategory_CategoryIdIn")
-    DataResult<List<ProductDto>> getByCategory_CategoryIdIn(@RequestParam("/categories") List<Integer> categories){
-        return productServiceInter.getByCategory_CategoryIdIn(categories);
+    ResponseEntity<DataResult<List<ProductDto>>> getByCategory_CategoryIdIn(@RequestParam("/categories") List<Integer> categories){
+        return ResponseEntity.ok(productServiceInter.getByCategory_CategoryIdIn(categories));
     }
 
     @GetMapping("/getByProductNameContains")
-    DataResult<List<ProductDto>> getByProductNameContains(@RequestParam("productName") String productName){
+    ResponseEntity<DataResult<List<ProductDto>>> getByProductNameContains(@RequestParam("productName") String productName){
 
-        return productServiceInter.getByProductNameContains(productName);
+        return ResponseEntity.ok(productServiceInter.getByProductNameContains(productName));
     }
 
 
     @GetMapping("/getByProductNameStartsWith")
-    DataResult<List<ProductDto>> getByProductNameStartsWith(@RequestParam("name") String name){
-        return productServiceInter.getByProductNameStartsWith(name);
+    ResponseEntity<DataResult<List<ProductDto>>> getByProductNameStartsWith(@RequestParam("name") String name){
+        return ResponseEntity.ok(productServiceInter.getByProductNameStartsWith(name));
     }
 
     @GetMapping("/getByNameAndCategory")
-    DataResult<List<ProductDto>> getByNameAndCategory(@RequestParam("productName") String productName ,@RequestParam("categoryId")  int categoryId){
-        return productServiceInter.getByNameAndCategory(productName, categoryId);
+    ResponseEntity<DataResult<List<ProductDto>>> getByNameAndCategory(@RequestParam("productName") String productName ,@RequestParam("categoryId")  int categoryId){
+        return ResponseEntity.ok(productServiceInter.getByNameAndCategory(productName, categoryId));
     }
 
 
 
     @GetMapping("/getProductWithCategoryDto")
-    public  DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDto(){
-        return productServiceInter.getProductWithCategoryDto();
+    public  ResponseEntity<DataResult<List<ProductWithCategoryDto>>> getProductWithCategoryDto(){
+        return  ResponseEntity.ok(productServiceInter.getProductWithCategoryDto());
     }
 
 

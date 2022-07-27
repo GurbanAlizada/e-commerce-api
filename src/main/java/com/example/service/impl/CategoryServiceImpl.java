@@ -31,7 +31,9 @@ public class CategoryServiceImpl implements CategoryServiceInter {
     }
 
     protected Category findCategoryById(int id){
-        return categoryRepository.findById(id).orElseThrow(()-> new CategoryNotFoundException("Aradiginiz kategory yok"));
+        return categoryRepository.findById(id)
+                .orElseThrow(
+                        ()-> new CategoryNotFoundException("Aradiginiz kategory yok"));
     }
 
 
